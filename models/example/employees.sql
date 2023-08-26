@@ -9,16 +9,16 @@ WITH e AS (
     department_id,
     salary
   FROM  
-    `satu-data-staging-dev.dbt_project.employees`
-    --{{ source('superstore','employees')}}
+    -- `satu-data-staging-dev.dbt_project.employees`
+    {{ source('dbt_project','employees')}}
 ),
 d AS (
   SELECT
   department_id,
   department_name
   FROM 
-    `satu-data-staging-dev.dbt_project.departments`
-    --{{ source('superstore','departments')}}
+    --`satu-data-staging-dev.dbt_project.departments`
+    {{ source('dbt_project','departments')}}
 )
 
 SELECT
